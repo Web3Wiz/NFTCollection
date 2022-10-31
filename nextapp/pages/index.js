@@ -58,9 +58,9 @@ export default function Home() {
 
   }, [walletConnected])
 
-  // useEffect(() => {
-  //   renderNFTButton();
-  // }, [alreadyMinted, isPresaleStarted, isPresaleEnded, isLoading, alreadyMinted])
+  useEffect(() => {
+    renderNFTButton();
+  }, [alreadyMinted, isPresaleStarted, isPresaleEnded, isLoading, alreadyMinted])
 
 
   const connectWallet = async () => {
