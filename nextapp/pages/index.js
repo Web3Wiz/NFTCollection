@@ -148,6 +148,7 @@ export default function Home() {
       const _tokenIdsMinted = await contract.mintedTokensIDs();
       setTokenIdsMinted(_tokenIdsMinted);
       window.alert("You've sucessfully minted CryptoDev NFT in Presale");
+      setAlreadyMinted(true);
     } catch (error) {
       setIsLoading(false);
       console.error(error);
@@ -170,6 +171,7 @@ export default function Home() {
       setIsLoading(false);
 
       window.alert("You've sucessfully minted CryptoDev NFT in Public sale.");
+      setAlreadyMinted(true);
     } catch (error) {
       setIsLoading(false);
       console.error(error);
