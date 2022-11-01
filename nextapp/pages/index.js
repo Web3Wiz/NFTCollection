@@ -11,7 +11,7 @@ import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../constants';
 
 export default function Home() {
 
-  const [tokenIdsMinted, setTokenIdsMinted] = useState("");
+  const [tokenIdsMinted, setTokenIdsMinted] = useState("0");
   const [walletConnected, setWlletConnected] = useState(false);
   const [alreadyMinted, setAlreadyMinted] = useState(false);
   const [isPresaleStarted, setIsPresaleStarted] = useState(false);
