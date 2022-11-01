@@ -303,7 +303,7 @@ export default function Home() {
         if (!isPresaleStarted) {
           if (isOwner)
             return (
-              <button className={styles.button} onClick={startPresale}>Start Presale</button>
+              <button className={styles.button} onClick={startPresale}>Start Presale 🚀</button>
             );
           else
             return (
