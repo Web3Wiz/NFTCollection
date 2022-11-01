@@ -39,7 +39,7 @@
   color: #ffffff;
   font-size: 15px;
   padding: 20px;
-  /* width: 200px; */
+  min-width: 250px; 
   cursor: pointer;
   margin-bottom: 2%;
 }

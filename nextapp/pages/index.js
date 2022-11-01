@@ -134,7 +134,7 @@ export default function Home() {
   const presaleMint = async () => {
     try {
 
-      if (hasAddressAlreadyMinted()) {
+      if (await hasAddressAlreadyMinted()) {
         window.alert("Sender address has already minted the token.");
         return false;
       }
@@ -156,7 +156,7 @@ export default function Home() {
   const publicMint = async () => {
     try {
 
-      if (hasAddressAlreadyMinted()) {
+      if (await hasAddressAlreadyMinted()) {
         window.alert("Sender address has already minted the token.");
         return false;
       }
@@ -296,7 +296,7 @@ export default function Home() {
       }
       else if (isLoading) {
         return (
-          <button className={styles.button}>Loading ...</button>
+          <button className={styles.button}>Processing ...</button>
         );
       }
       else {
@@ -334,7 +334,7 @@ export default function Home() {
     }
     else if (isLoading) {
       return (
-        <button className={styles.button}>Loading ...</button>
+        <button className={styles.button}>Processing ...</button>
       );
     }
     else {
