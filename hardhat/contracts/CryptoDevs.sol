@@ -106,5 +106,13 @@ Current gas price: 12195676713
 Estimated gas: 3904339
 Deployer balance:  1.928164444122466288
 Deployment price:  0.047616056221957707
-CryptoDev contract deployed address is 0x371bD1497467eA3E482a2b88837E2E7840A69d90
+CryptoDev contract deployed address is 0x371bD1497467eA3E482a2b88837E2E7840A69d90 (tested)
+*/
+
+/*
+Current gas price: 1284019087
+Estimated gas: 3904135
+Deployer balance:  1.560974370566107624
+Deployment price:  0.005012983858224745
+CryptoDev contract deployed address is 0xf312515db66744e7c39fdc2520b55567d9547E93
 */
