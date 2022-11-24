@@ -18,10 +18,13 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
     uint256 public tokenPrice = 1 wei;
     bool public isPaused;
 
-    mapping (address => bool) public mintedAddresses;
+    mapping(address => bool) public mintedAddresses;
 
     modifier onlyWhenNotPaused() {
-        require(!isPaused, "Can not process the request. Contract is currently paused.");
+        require(
+            !isPaused,
+            "Can not process the request. Contract is currently paused."
+        );
         _;
     }
 
@@ -37,12 +40,27 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
         presaleStarted = true;
     }
 
-    function presaleMint() public payable onlyWhenNotPaused{
-        require(presaleStarted, "Presale is yet to be started. Please try again after sometime.");
-        require(block.timestamp <= ( presaleStartTime + 5 minutes), "Presale mint time has ended." );
-        require(mintedTokensIDs < maxTokensIDs, "All the tokens are already minted.");
-        require(iWhitelist.whitelist(msg.sender), "Sender address is not whitelisted to participate in Presale mint.");
-        require(!mintedAddresses[msg.sender], "Only one token is allowed. Sender address has already minted the token.");
+    function presaleMint() public payable onlyWhenNotPaused {
+        require(
+            presaleStarted,
+            "Presale is yet to be started. Please try again after sometime."
+        );
+        require(
+            block.timestamp <= (presaleStartTime + 5 minutes),
+            "Presale mint time has ended."
+        );
+        require(
+            mintedTokensIDs < maxTokensIDs,
+            "All the tokens are already minted."
+        );
+        require(
+            iWhitelist.whitelist(msg.sender),
+            "Sender address is not whitelisted to participate in Presale mint."
+        );
+        require(
+            !mintedAddresses[msg.sender],
+            "Only one token is allowed. Sender address has already minted the token."
+        );
         require(msg.value >= tokenPrice, "Not enough ethers sent.");
 
         mintedTokensIDs++;
@@ -51,10 +69,19 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
         mintedAddresses[msg.sender] = true;
     }
 
-    function publicMint() public payable onlyWhenNotPaused{
-        require(presaleStarted && block.timestamp > ( presaleStartTime + 5 minutes), "Public mint is yet to be started." );
-        require(mintedTokensIDs < maxTokensIDs, "All the tokens are already minted.");
-        require(!mintedAddresses[msg.sender], "Only one token is allowed. Sender address has already minted the token.");
+    function publicMint() public payable onlyWhenNotPaused {
+        require(
+            presaleStarted && block.timestamp > (presaleStartTime + 5 minutes),
+            "Public mint is yet to be started."
+        );
+        require(
+            mintedTokensIDs < maxTokensIDs,
+            "All the tokens are already minted."
+        );
+        require(
+            !mintedAddresses[msg.sender],
+            "Only one token is allowed. Sender address has already minted the token."
+        );
         require(msg.value >= tokenPrice, "Not enough ethers sent.");
 
         mintedTokensIDs++;
@@ -62,30 +89,30 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
         mintedAddresses[msg.sender] = true;
     }
 
-    function isPresaleEnded() public view onlyWhenNotPaused returns(bool){
-        return  (presaleStarted && block.timestamp > ( presaleStartTime + 5 minutes));
+    function isPresaleEnded() public view onlyWhenNotPaused returns (bool) {
+        return (presaleStarted &&
+            block.timestamp > (presaleStartTime + 5 minutes));
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
         return baseTokenURI;
-    } 
+    }
+
     function pauseContract() public onlyOwner {
-        isPaused = true;            
+        isPaused = true;
     }
 
     function withdraw() public onlyOwner {
         address _owner = owner();
-        uint256 _amount =  address(this).balance;
-        (bool sent, ) = _owner.call{value:_amount}("");
+        uint256 _amount = address(this).balance;
+        (bool sent, ) = _owner.call{value: _amount}("");
         require(sent, "Failed to withdraw ether");
     }
 
-    receive() external payable  {}
+    receive() external payable {}
 
     fallback() external payable {}
-
 }
-
 
 /*
 
@@ -115,4 +142,12 @@ Estimated gas: 3904135
 Deployer balance:  1.560974370566107624
 Deployment price:  0.005012983858224745
 CryptoDev contract deployed address is 0xf312515db66744e7c39fdc2520b55567d9547E93
+*/
+
+/*
+Current gas price: 8086197758
+Estimated gas: 3904135
+Deployer balance:  5.297397320245390221
+Deployment price:  0.03156960768392933
+CryptoDev contract deployed address is 0x4f0439a1E89C7981A4B79Dc8750DEA71b056E6e5
 */
