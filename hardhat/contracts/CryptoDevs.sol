@@ -115,20 +115,6 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
 }
 
 /*
-
-CryptoDev contract deployed address is 0x00dB25D34e94180b3793a48FFcbfE1D6E75A485F (WORKING....)
-
-*/
-
-/*
-Current gas price: 38797350445
-Estimated gas: 3904183
-Deployer balance:  1.928164444122466288
-Deployment price:  0.151471956052411435
-CryptoDev contract deployed address is 0x41DF0f4af0f450AcE46AfD740D0e1248ac2A3a5f
-*/
-
-/*
 Current gas price: 12195676713
 Estimated gas: 3904339
 Deployer balance:  1.928164444122466288
@@ -137,17 +123,9 @@ CryptoDev contract deployed address is 0x371bD1497467eA3E482a2b88837E2E7840A69d9
 */
 
 /*
-Current gas price: 1284019087
-Estimated gas: 3904135
-Deployer balance:  1.560974370566107624
-Deployment price:  0.005012983858224745
-CryptoDev contract deployed address is 0xf312515db66744e7c39fdc2520b55567d9547E93
-*/
-
-/*
 Current gas price: 8086197758
 Estimated gas: 3904135
 Deployer balance:  5.297397320245390221
 Deployment price:  0.03156960768392933
-CryptoDev contract deployed address is 0x4f0439a1E89C7981A4B79Dc8750DEA71b056E6e5
+CryptoDev contract deployed address is 0x4f0439a1E89C7981A4B79Dc8750DEA71b056E6e5 (Working on OpenSea)
 */
