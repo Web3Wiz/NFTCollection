@@ -24,7 +24,7 @@ async function main() {
   /* ############ END   => Additional Deployement Steps (Optional) ######################## */
 
   const deployedContract = await contract.deploy(METADATA_URL, WHITELIST_CONTRACT_ADDRESS);
-  //await contract.deployed();
+  await contract.deployed();
 
   console.log("CryptoDev contract deployed address is", deployedContract.address);
 }
